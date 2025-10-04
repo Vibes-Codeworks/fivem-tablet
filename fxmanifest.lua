@@ -9,7 +9,12 @@ ui_page 'nui/index.html'
 
 client_scripts {
     'config.lua',
-    'client.lua'
+    'client/client.lua',
+    'client/jobs.lua'
+}
+
+server_scripts {
+    'server/jobs.lua'
 }
 
 files {

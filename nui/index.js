@@ -18,7 +18,16 @@ const app = new Vue({
         ],
         Applications: [
             { name: 'Information', icon: 'img/info.svg', href: 'info' }, 
-            { name: 'Controls', icon: 'img/controls.svg', href: 'keybinds' }
+            { name: 'Controls', icon: 'img/controls.svg', href: 'keybinds' },
+            { name: 'Job Openings', icon:'img/Nowhiring.png', href: 'Jobs'}
+        ],
+        Jobs: [
+            {name: 'trucker'},
+            {name: 'taxi'},
+            {name: 'towing'},
+            {name: 'reporter'},
+            {name: 'garbage'},
+            {name: 'bus'},
         ]
     },
     mounted() {
@@ -48,6 +57,11 @@ const app = new Vue({
             setTimeout(() => {
                 this.setPageOpacity(page, 1);
             }, 50);
+        },
+        async chooseJob(jobName) {
+            console.log("Clicked job:", jobName);
+            this.playerJob = jobName;
+            this.post('setJob', { job: jobName }); //send to server
         }
     }
 });
@@ -69,3 +83,5 @@ window.addEventListener('keydown', async ({ key }) => {
     if (which == 'escape')
         return await app.post('close');
 });
+
+

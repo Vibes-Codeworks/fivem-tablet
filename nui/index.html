@@ -72,6 +72,18 @@
                         <p><b>[N]</b> - Talk</p>
                     </div>
                 </div>
+
+                <div class='page' id='Jobs' v-if='currentPage == "Jobs"'>
+                    <div class='content'>
+                        <h1>Current Openings</h1>
+
+                        <ul>
+                            <li v-for="job in Jobs" :key="job.name" @click="chooseJob(job.name)" style="cursor: pointer;">
+                                {{job.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 
             </div>
             <div class='tablet-footer'>
